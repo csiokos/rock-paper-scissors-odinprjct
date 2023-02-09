@@ -4,38 +4,65 @@ function getComputerChoice(){
   return choices[randomIndex]
 }
 
-let playerSelection = prompt("Rock, Paper, or Scissors?").toLowerCase();
-let computerSelection = (getComputerChoice()).toLowerCase();
-console.log(computerSelection);
-console.log(playerSelection);
-
-console.log(playRound(playerSelection,computerSelection));
-
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
       return "Draw!";
     } else if (playerSelection === "rock") {
       if (computerSelection === "scissors") {
-        return "You Win! Rock beats Scissors";
+        return "winner";
       } else {
-        return "You Lose! Paper beats Rock";
+        return "loser";
       }
     } else if (playerSelection === "paper") {
       if (computerSelection === "rock") {
-        return "You Win! Paper beats Rock";
+        return "winner";
       } else {
-        return "You Lose! Scissors beats Paper";
+        return "loser";
       }
     } else if (playerSelection === "scissors") {
       if (computerSelection === "paper") {
-        return "You Win! Scissors beats Paper";
+        return "winner";
       } else {
-        return "You Lose! Rock beats Scissors";
+        return "loser";
       }
     } else {
       return "Invalid input. Please enter Rock, Paper, or Scissors.";
     }
   }
 
+  function game(){
+    let scorePlayer = 0;
+    let scoreComp = 0;
+    for (let i=0; i<5; i++ ){
+        let playerSelection = prompt("Rock, Paper, or Scissors?").toLowerCase();
+        let computerSelection = (getComputerChoice()).toLowerCase();
+        let result = playRound(playerSelection,computerSelection)
+        if(result === 'winner'){
+            scorePlayer= scorePlayer+1
+
+        } else if(result==='loser'){
+            scoreComp = scoreComp +1;
+            
+        }else{
+            i=i-1;
+        }
+    }
+    let final;
+    if(scoreComp>scorePlayer){
+        final = "You lose";
+        return final;
+    } else if(scoreComp<scorePlayer) {
+        final = "You win"; 
+        return final;
+
+    } else {
+        final = "tie";
+        return final;
+    }
+
+  }
+
+
+  console.log(game());
   
   
