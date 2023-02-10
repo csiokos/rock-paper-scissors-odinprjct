@@ -36,6 +36,7 @@ function playRound(playerSelection, computerSelection) {
     for (let i=0; i<5; i++ ){
         let playerSelection = prompt("Rock, Paper, or Scissors?").toLowerCase();
         let computerSelection = (getComputerChoice()).toLowerCase();
+        console.log(playerSelection, computerSelection)
         let result = playRound(playerSelection,computerSelection)
         if(result === 'winner'){
             scorePlayer= scorePlayer+1
@@ -46,6 +47,8 @@ function playRound(playerSelection, computerSelection) {
         }else{
             i=i-1;
         }
+        console.log("Player:", scorePlayer);
+        console.log("Comp:", scoreComp);
     }
     let final;
     if(scoreComp>scorePlayer){
@@ -63,6 +66,6 @@ function playRound(playerSelection, computerSelection) {
   }
 
 
-  console.log(game());
+  alert(game());
   
   
