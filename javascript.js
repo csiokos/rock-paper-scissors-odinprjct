@@ -3,6 +3,7 @@ let computerScore = 0;
 const winningScore = 5;
 
 
+
 function getComputerChoice() {
   const choices = ['rock', 'paper', 'scissors'];
   const randomIndex = Math.floor(Math.random() * 3);
@@ -66,6 +67,7 @@ function updateScore() {
 function resetGame() {
   playerScore = 0;
   computerScore = 0;
+  updateScore();
   const resultDiv = document.querySelector('#result');
   const winnerDiv = document.querySelector('#winner');
   const playAgainButton = document.querySelector('#play-again-button');
@@ -81,6 +83,9 @@ const rockButton = document.querySelector('#rock-button');
 const paperButton = document.querySelector('#paper-button');
 const scissorsButton = document.querySelector('#scissors-button');
 const playAgainButton = document.querySelector('#play-again-button');
+
+updateScore();
+
 
 rockButton.addEventListener('click', () => {
   const result = playRound('rock', getComputerChoice());
@@ -106,5 +111,3 @@ scissorsButton.addEventListener('click', () => {
 playAgainButton.addEventListener('click', () => {
   resetGame();
 });
-
-//den exo xrisimopoiisei tin teleutaia protasi tou chatgpt
